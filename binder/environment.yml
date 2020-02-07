@@ -1,0 +1,8 @@
+name: octave-notebook
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  - pip:
+    - octave_kernel
