@@ -1,10 +1,11 @@
 FROM jupyter/base-notebook
     
-LABEL Description="Jupyter Octave"
-    
 USER root
-RUN apt-get update && \
-    apt-get install -y gnuplot octave && \
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update -yqq && \
+    apt-get install -yqq gnuplot octave && \
+    apt-get autoclean \
     apt-get clean
     
 USER jovyan
