@@ -1,0 +1,4 @@
+*.octave-workspace
+*.term
+*.*
+!.gitignore
