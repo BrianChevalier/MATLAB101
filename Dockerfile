@@ -1,19 +1,12 @@
-  
-FROM jupyter/minimal-notebook
-
+FROM jupyter/base-notebook
+    
+LABEL Description="Jupyter Octave"
+    
 USER root
-
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends octave \
-        octave-symbolic octave-miscellaneous \
-        python-sympy \
-        gnuplot ghostscript && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-USER $NB_UID
-
-RUN conda install --quiet --yes \
-    'octave_kernel' && \
-    conda clean -tipsy && \
-    fix-permissions $CONDA_DIR
+    apt-get install -y gnuplot octave && \
+    apt-get clean
+    
+USER jovyan
+RUN pip install octave_kernel && \
+    export OCTAVE_EXECUTABLE=$(which octave)
