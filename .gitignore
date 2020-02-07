@@ -2,3 +2,4 @@
 *.term
 *.*
 !.gitignore
+!*.ipynb
