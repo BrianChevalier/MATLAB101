@@ -3,6 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python
+  - rise
   - pip
   - pip:
     - octave_kernel
